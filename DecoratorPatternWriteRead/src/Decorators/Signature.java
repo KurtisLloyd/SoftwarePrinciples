@@ -1,0 +1,64 @@
+package Decorators;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Iterator;
+
+public class Signature extends WriterDecorator {
+
+	public Signature(Writer writer) {
+		super(writer);
+		
+	}
+
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void flush() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void write(String input) throws IOException{
+		
+		
+	
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Calendar cal = Calendar.getInstance();
+			
+			String nameAndDate = "      Kurtis Lloyd " + dateFormat.format(cal.getTime()).toString();
+		
+			
+			String addedToChar = input + nameAndDate;
+			
+			super.writer.write(addedToChar);
+		
+	}
+
+	@Override
+	public void write(char[] arg0, int arg1, int arg2) throws IOException {
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Calendar cal = Calendar.getInstance();
+		
+		String nameAndDate = "Kurtis Lloyd " + dateFormat.format(cal);
+		
+		String toTransform = arg0.toString();
+		
+		String addedToChar = toTransform + nameAndDate;
+		
+		char[] charArray = addedToChar.toCharArray();
+		
+		super.writer.write(charArray, arg1, arg2);
+				
+	}
+
+}
