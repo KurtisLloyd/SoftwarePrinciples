@@ -18,19 +18,20 @@ public class Signature extends WriterDecorator {
 	@Override
 	public void close() throws IOException {
 		// TODO Auto-generated method stub
+		writer.close();
 		
 	}
 
 	@Override
 	public void flush() throws IOException {
 		// TODO Auto-generated method stub
+		writer.flush();
 		
 	}
 	@Override
 	public void write(String input) throws IOException{
 		
 		
-	
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			Calendar cal = Calendar.getInstance();
 			
@@ -39,26 +40,15 @@ public class Signature extends WriterDecorator {
 			
 			String addedToChar = input + nameAndDate;
 			
-			super.writer.write(addedToChar);
+			writer.write(addedToChar);
 		
 	}
 
 	@Override
-	public void write(char[] arg0, int arg1, int arg2) throws IOException {
+	public void write(char[] cbuf, int off, int len) throws IOException {
+		writer.write(cbuf,  off, len);
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Calendar cal = Calendar.getInstance();
-		
-		String nameAndDate = "Kurtis Lloyd " + dateFormat.format(cal);
-		
-		String toTransform = arg0.toString();
-		
-		String addedToChar = toTransform + nameAndDate;
-		
-		char[] charArray = addedToChar.toCharArray();
-		
-		super.writer.write(charArray, arg1, arg2);
-				
 	}
 
+	
 }

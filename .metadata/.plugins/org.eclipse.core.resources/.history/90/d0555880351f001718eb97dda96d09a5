@@ -1,0 +1,24 @@
+package Decorators;
+
+import java.io.IOException;
+import java.io.Reader;
+
+public class ReaderDecorator extends Reader {
+	
+	protected Reader reader;
+	public ReaderDecorator(Reader reader){
+		this.reader = reader;
+	}
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int read(char[] cbuf, int off, int len) throws IOException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+}

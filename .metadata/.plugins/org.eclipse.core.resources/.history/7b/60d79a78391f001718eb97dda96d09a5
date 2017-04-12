@@ -1,0 +1,74 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.Writer;
+
+import Decorators.Shift;
+import Decorators.ShiftBack;
+import Decorators.Signature;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	
+		System.out.println(shiftBack());
+
+	}
+	
+	private static void Shift(){
+	
+		try {
+			Writer writer = new Shift(new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/SendToThis.txt"))));
+			writer.write("Please Work");
+			writer.flush();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void signature(){
+		Writer writer;
+		try {
+			writer = new Signature(new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("c:/SendToThis.txt"))));
+			
+			writer.write("Please Work");
+			writer.flush();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+			}
+	
+	
+	private static String shiftBack(){
+		StringBuilder builder = new StringBuilder();
+		try { 
+			Reader shiftBack = new ShiftBack(new BufferedReader(new FileReader("C:/SendToThis.txt")));
+	        int r;
+	        while ((r = shiftBack.read()) != -1) {
+	            char nextChar = (char) r;
+	            builder.append(nextChar);
+	        }
+	        shiftBack.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return builder.toString();
+		
+	}
+
+}

@@ -5,15 +5,12 @@ import java.io.Writer;
 
 public abstract class WriterDecorator extends Writer {
 	
-	Writer writer;
+	protected Writer writer;
 	
 	public WriterDecorator(Writer writer){
 		this.writer = writer;
 	}
-	@Override
-	public void write(String input) throws IOException{
-		writer.write(input);
-	}
+	
 
 
 	

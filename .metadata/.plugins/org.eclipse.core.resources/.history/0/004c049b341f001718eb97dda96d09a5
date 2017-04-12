@@ -1,0 +1,43 @@
+package Decorators;
+
+import java.io.IOException;
+import java.io.Writer;
+
+public class Shift extends WriterDecorator {
+
+	public Shift(Writer writer) {
+		super(writer);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void close() throws IOException {
+		writer.close();
+		
+	}
+
+	@Override
+	public void flush() throws IOException {
+		writer.flush();
+		
+	}
+	@Override
+	public void write(String input)throws IOException{
+		char[] charArray = input.toCharArray();
+		
+		
+		for (char c : charArray) {
+			c = c++;
+			
+		}
+		input = new String(charArray);
+		writer.write(input);
+		
+	}
+
+	@Override
+	public void write(char[] cbuf, int off, int len) throws IOException {
+		writer.write(cbuf, off, len);		
+	}
+
+}

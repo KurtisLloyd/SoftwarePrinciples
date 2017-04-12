@@ -1,0 +1,41 @@
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+
+import Decorators.Signature;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//Section for Testing
+		
+		
+		try {
+			
+			Writer writer = new Signature(new BufferedWriter(new OutputStreamWriter(
+		              new FileOutputStream("c:/SendToThis.txt"))));
+			
+			Writer writer2 = new BufferedWriter(new Signature(new OutputStreamWriter(new FileOutputStream("c:/SendToThis.txt"))));
+			
+			writer2.write("Please Work");
+			writer2.flush();
+			
+		
+			
+//			Writer w = new FileWriter("C:/SendToThis.txt");
+//			w.write("This File should have shizz in it!");
+//			w.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	}
+
+}

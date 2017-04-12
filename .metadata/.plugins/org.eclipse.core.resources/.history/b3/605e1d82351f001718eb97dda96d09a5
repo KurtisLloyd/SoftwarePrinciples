@@ -1,0 +1,11 @@
+package Decorators;
+
+import java.io.Reader;
+
+public class ShiftBack extends ReaderDecorator {
+
+	public ShiftBack(Reader reader) {
+		super(reader);
+	}
+
+}
