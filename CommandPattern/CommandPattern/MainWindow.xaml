@@ -1,0 +1,30 @@
+﻿<Window x:Class="CommandPattern.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandPattern"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="265*"/>
+            <RowDefinition Height="54*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="182,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="103"/>
+        <Label Content="Command Pattern" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray"/>
+        <GridSplitter HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="507" Margin="0,249,0,0"/>
+        <Button Content="UP" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="61" Height="18" RenderTransformOrigin="0.053,0.608" Click="Button_Click"/>
+        <Button Content="Down" HorizontalAlignment="Left" Margin="76,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.25,-0.793" Height="18" Click="Button_Click_1"/>
+        <Button Content="Left" HorizontalAlignment="Left" Margin="143,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="61" Height="18" Click="Button_Click_2"/>
+        <Button Content="Right" HorizontalAlignment="Left" Margin="209,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.007,-0.159" Height="18" Click="Button_Click_3"/>
+        <Button Content="Undo" HorizontalAlignment="Left" Margin="432,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="Color" Margin="286,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Red" />
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="Green"/>
+        </ComboBox>
+
+
+    </Grid>
+</Window>
